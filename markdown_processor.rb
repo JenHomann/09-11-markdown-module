@@ -1,9 +1,12 @@
 require 'pry'
 module MarkdownProcessor
 
-  def self.convert_to_h1(string)
-    if string.split(//).first == "#"
-      return "<h1>#{string}<h1>"
+  def convert_to_h1(string)
+    split_string = string.split(//)
+    if split_string[0] == "#"
+      split_string.shift
+      new_string = split_string.join
+      return "<h1>#{new_string}</h1>"
     else
       false
     end
